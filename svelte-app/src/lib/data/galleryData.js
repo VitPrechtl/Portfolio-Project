@@ -90,25 +90,25 @@ export const galleryItems = {
             id: 'render1',
             title: 'Architectural Visualization',
             description: 'Exterior rendering of modern residential building',
-            imageUrl: '/images/portfolio/rendering/architectural.jpg'
+            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
         },
         {
             id: 'render2',
             title: 'Interior Design',
             description: 'Photorealistic interior visualization for luxury apartment',
-            imageUrl: '/images/portfolio/rendering/interior.jpg'
+            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
         },
         {
             id: 'render3',
             title: 'Landscape Rendering',
             description: 'Urban landscape visualization for city planning project',
-            imageUrl: '/images/portfolio/rendering/landscape.jpg'
+            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
         },
         {
             id: 'render4',
             title: 'Lighting Study',
             description: 'Advanced lighting visualization for architectural project',
-            imageUrl: '/images/portfolio/rendering/lighting.jpg'
+            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
         }
     ],
 

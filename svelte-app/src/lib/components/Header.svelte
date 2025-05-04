@@ -7,7 +7,7 @@
     <div class="header-container">
         <!-- Logo -->
         <div class="logo">
-            <a href="/"><img src="brand_img/Vit_Logo.png" alt="Website Logo"></a>
+            <a href="/"><img src="/brand_img/Vit_Logo.png" alt="Website Logo"></a>
         </div>
         
         <div class="nav-container">

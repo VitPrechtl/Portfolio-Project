@@ -41,7 +41,6 @@
         <div class="portfolio-section">
             <h2>Our Rendering Portfolio</h2>
             <p>Explore our recent work and see how we can help bring your vision to life.</p>
-            <p class="note">(Note: Placeholder images are displayed until actual portfolio images are added)</p>
             <PortfolioGallery items={galleryItems} columns={3} gap="1.5rem" />
         </div>
     </div>
@@ -113,7 +112,7 @@
     }
     
     .service-details {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: black;
         border-radius: 10px;
         padding: 30px;
         color: white;
@@ -140,6 +139,7 @@
     ul {
         margin-left: 20px;
         margin-bottom: 30px;
+        list-style-type: none;
     }
     
     li {
@@ -199,7 +199,7 @@
     /* Portfolio section styling */
     .portfolio-section {
         margin-top: 50px;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: black;
         border-radius: 10px;
         padding: 30px;
         color: white;
