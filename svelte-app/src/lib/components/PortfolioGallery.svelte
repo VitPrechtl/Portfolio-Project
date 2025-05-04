@@ -13,16 +13,8 @@
                     src={item.imageUrl} 
                     alt={item.title}
                     on:error={(e) => {
-                        // If image fails to load, set a placeholder color background
-                        e.target.style.backgroundColor = item.placeholderColor || '#333';
-                        e.target.style.display = 'flex';
-                        e.target.style.alignItems = 'center';
-                        e.target.style.justifyContent = 'center';
-                        // Replace the image with a placeholder text
-                        e.target.outerHTML = `<div class="placeholder-img" style="background-color: black;">
-                            <span>${item.title || 'Image Placeholder'}</span>
-                            <span class="click-details">Click for more details</span>
-                        </div>`;
+                        // If image fails to load, simply replace with a black placeholder div
+                        e.target.outerHTML = `<div class="placeholder-img"></div>`;
                     }}
                 />
                 <div class="overlay">
@@ -73,10 +65,6 @@
         min-height: 300px;
         aspect-ratio: 4/3;
         background-color: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
     }
 
     img {
@@ -156,23 +144,11 @@
 
     .placeholder-img {
         width: 100%;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 1rem;
+        height: 100%;
+        min-height: 300px;
+        display: block;
         box-sizing: border-box;
-        border-radius: 0.5rem;
         background-color: black;
-    }
-
-    .placeholder-img span {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     /* Responsive adjustments */
