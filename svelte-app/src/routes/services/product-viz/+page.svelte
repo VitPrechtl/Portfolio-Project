@@ -1,9 +1,14 @@
 <script>
     import { goto } from '$app/navigation';
+    import PortfolioGallery from '$lib/components/PortfolioGallery.svelte';
+    import { getGalleryItems } from '$lib/data/galleryData.js';
 
     function goBack() {
         goto('/services');
     }
+    
+    // Get product visualization portfolio items
+    const galleryItems = getGalleryItems('productViz');
 </script>
 
 <div class="service-page">
@@ -27,6 +32,13 @@
             </ul>
             
             <p>Our team uses industry-leading software and techniques to create compelling visuals that help your products stand out in the marketplace. Whether you need simple product shots or complex advertising campaigns, we have the expertise to bring your vision to life.</p>
+        </div>
+        
+        <div class="portfolio-section">
+            <h2>Our Product Visualization Portfolio</h2>
+            <p>Explore our recent work and see how we can help bring your vision to life.</p>
+            <p class="note">(Note: Placeholder images are displayed until actual portfolio images are added)</p>
+            <PortfolioGallery items={galleryItems} columns={3} gap="1.5rem" />
         </div>
     </div>
 </div>
@@ -177,6 +189,43 @@
         
         p, li {
             font-size: 1rem;
+        }
+    }
+    
+    /* Portfolio section styling */
+    .portfolio-section {
+        margin-top: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 30px;
+        color: white;
+    }
+    
+    .portfolio-section h2 {
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+    
+    .portfolio-section .note {
+        font-size: 0.9rem;
+        font-style: italic;
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+        .portfolio-section h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .portfolio-section {
+            padding: 20px;
+        }
+        
+        .portfolio-section h2 {
+            font-size: 1.5rem;
         }
     }
 </style>

@@ -1,9 +1,14 @@
 <script>
     import { goto } from '$app/navigation';
+    import PortfolioGallery from '$lib/components/PortfolioGallery.svelte';
+    import { getGalleryItems } from '$lib/data/galleryData.js';
 
     function goBack() {
         goto('/services');
     }
+    
+    // Get VFX and CGI portfolio items
+    const galleryItems = getGalleryItems('vfxCgi');
 </script>
 
 <div class="service-page">
@@ -28,6 +33,13 @@
             </ul>
             
             <p>Our VFX team brings years of industry experience to every project, delivering seamless integration of computer-generated imagery with live-action footage. Whether you need subtle enhancements or complex visual sequences, we have the tools and talent to bring your creative vision to life.</p>
+        </div>
+        
+        <div class="portfolio-section">
+            <h2>Our VFX & CGI Portfolio</h2>
+            <p>Explore our recent work and see how we can help bring your vision to life.</p>
+            <p class="note">(Note: Placeholder images are displayed until actual portfolio images are added)</p>
+            <PortfolioGallery items={galleryItems} columns={3} gap="1.5rem" />
         </div>
     </div>
 </div>
@@ -178,6 +190,43 @@
         
         p, li {
             font-size: 1rem;
+        }
+    }
+    
+    /* Portfolio section styling */
+    .portfolio-section {
+        margin-top: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 30px;
+        color: white;
+    }
+    
+    .portfolio-section h2 {
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+    
+    .portfolio-section .note {
+        font-size: 0.9rem;
+        font-style: italic;
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+        .portfolio-section h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .portfolio-section {
+            padding: 20px;
+        }
+        
+        .portfolio-section h2 {
+            font-size: 1.5rem;
         }
     }
 </style>

@@ -1,9 +1,14 @@
 <script>
     import { goto } from '$app/navigation';
+    import PortfolioGallery from '$lib/components/PortfolioGallery.svelte';
+    import { getGalleryItems } from '$lib/data/galleryData.js';
 
     function goBack() {
         goto('/services');
     }
+    
+    // Get rendering portfolio items
+    const galleryItems = getGalleryItems('rendering');
 </script>
 
 <div class="service-page">
@@ -31,6 +36,13 @@
             <p>Our rendering specialists combine technical knowledge with artistic sensibility to create images that convey the perfect mood and atmosphere for your project. We carefully optimize scene elements, materials, and lighting to achieve the perfect balance between visual quality and rendering efficiency.</p>
             
             <p>Whether you need a single high-quality image or hundreds of renders for a walkthrough or animation, our scalable rendering solutions can accommodate projects of any size with consistent quality and timely delivery.</p>
+        </div>
+        
+        <div class="portfolio-section">
+            <h2>Our Rendering Portfolio</h2>
+            <p>Explore our recent work and see how we can help bring your vision to life.</p>
+            <p class="note">(Note: Placeholder images are displayed until actual portfolio images are added)</p>
+            <PortfolioGallery items={galleryItems} columns={3} gap="1.5rem" />
         </div>
     </div>
 </div>
@@ -181,6 +193,43 @@
         
         p, li {
             font-size: 1rem;
+        }
+    }
+    
+    /* Portfolio section styling */
+    .portfolio-section {
+        margin-top: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 30px;
+        color: white;
+    }
+    
+    .portfolio-section h2 {
+        color: var(--secondary-color);
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+    
+    .portfolio-section .note {
+        font-size: 0.9rem;
+        font-style: italic;
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+        .portfolio-section h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .portfolio-section {
+            padding: 20px;
+        }
+        
+        .portfolio-section h2 {
+            font-size: 1.5rem;
         }
     }
 </style>
