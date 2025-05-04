@@ -1,29 +1,44 @@
 <script>
     import { onMount } from 'svelte';
-
+    import { fade } from 'svelte/transition';
+    
+    let visible = false;
+    
     onMount(() => {
         console.log("Contact Page Loaded");
+        // Set visible to true after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            visible = true;
+        }, 100);
     });
 </script>
 
 <div class="contact-container">
-    <div class="contact-content">
-        <h1>Contact</h1>
-        <p class="email">contact.suryqata@gmail.com</p>
-        <a href="mailto:contact.suryqata@gmail.com" class="email-button">Send an email</a>
+    {#if visible}
+    <div class="contact-content" transition:fade={{ duration: 800 }}>
+        <h1 transition:fade={{ delay: 300, duration: 800 }}>Contact</h1>
+        <p class="email" transition:fade={{ delay: 500, duration: 800 }}>contact.suryqata@gmail.com</p>
+        <a href="mailto:contact.suryqata@gmail.com" class="email-button" transition:fade={{ delay: 700, duration: 800 }}>Send an email</a>
         
-        <h1 class="socials-heading">Socials</h1>
-        <ul class="social-list">
-            <li><a href="#" target="_blank">Instagram</a></li>
-            <li><a href="#" target="_blank">Behance</a></li>
-            <li><a href="#" target="_blank">Dribbble</a></li>
-            <li><a href="#" target="_blank">ArtStation</a></li>
-            <li><a href="#" target="_blank">YouTube</a></li>
+        <h1 class="socials-heading" transition:fade={{ delay: 900, duration: 800 }}>Socials</h1>
+        <ul class="social-list" transition:fade={{ delay: 1100, duration: 800 }}>
+            <li><a href="https://www.instagram.com/suryqata/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.behance.net/suryqata" target="_blank">Behance</a></li>
+            <li><a href="https://dribbble.com/Suryqata" target="_blank">Dribbble</a></li>
+            <li><a href="https://www.artstation.com/suryqata" target="_blank">ArtStation</a></li>
+            <li><a href="https://www.youtube.com/@suryqata" target="_blank">YouTube</a></li>
         </ul>
     </div>
+    {/if}
 </div>
 
 <style>
+    /* Fade-in animation for elements that don't use Svelte transitions */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
     .contact-container {
         margin: 0;
         background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);

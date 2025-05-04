@@ -1,27 +1,52 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
     import { ServicesCard } from '$lib';
-
+    
+    let visible = false;
+    
     onMount(() => {
-        console.log("Contact Page Loaded");
+        console.log("Services Page Loaded");
+        // Set visible to true after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            visible = true;
+        }, 100);
     });
 </script>
 
 <div class="services-container">
-    <h1>Services</h1>
-    <div class="content-wrapper">
+    {#if visible}
+    <h1 transition:fade={{ delay: 300, duration: 800 }}>Services</h1>
+    <div class="content-wrapper" transition:fade={{ duration: 800 }}>
         <div class="services-list">
-            <ServicesCard title="Product / Ad Viz" bgImage="services/ProductViz_Backplate.png" slug="product-viz" />
-            <ServicesCard title="VFX / CGI" bgImage="services/vfxCgi_BackPlate.png" slug="vfx-cgi" />
-            <ServicesCard title="Animation" bgImage="services/Animation_Backplate.png" slug="animation" />
-            <ServicesCard title="Modeling and Texturing" bgImage="services/ModelingAndTexturing_Backplate.png" slug="modeling-and-texturing" />
-            <ServicesCard title="Rendering" bgImage="services/Rendering_Backplate.png" slug="rendering" />
+            <div transition:fade={{ delay: 400, duration: 800 }}>
+                <ServicesCard title="Product / Ad Viz" bgImage="services/ProductViz_Backplate.png" slug="product-viz" />
+            </div>
+            <div transition:fade={{ delay: 500, duration: 800 }}>
+                <ServicesCard title="VFX / CGI" bgImage="services/vfxCgi_BackPlate.png" slug="vfx-cgi" />
+            </div>
+            <div transition:fade={{ delay: 600, duration: 800 }}>
+                <ServicesCard title="Animation" bgImage="services/Animation_Backplate.png" slug="animation" />
+            </div>
+            <div transition:fade={{ delay: 700, duration: 800 }}>
+                <ServicesCard title="Modeling and Texturing" bgImage="services/ModelingAndTexturing_Backplate.png" slug="modeling-and-texturing" />
+            </div>
+            <div transition:fade={{ delay: 800, duration: 800 }}>
+                <ServicesCard title="Rendering" bgImage="services/Rendering_Backplate.png" slug="rendering" />
+            </div>
         </div>
     </div>
+    {/if}
 </div>
 
 
 <style>
+    /* Fade-in animation for elements that don't use Svelte transitions */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
     .services-container {
         margin: 0; /* Remove all margins */
         background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);
@@ -68,6 +93,10 @@
         gap: 8px;
         width: 100%;
         max-width: 700px;
+    }
+    
+    .services-list > div {
+        width: 100%;
     }
 
     /* Media queries for responsiveness */

@@ -1,22 +1,30 @@
 <script>
     import { onMount } from 'svelte';
-
+    import { fade } from 'svelte/transition';
+    
+    let visible = false;
+    
     onMount(() => {
         console.log("Home Page Loaded");
+        // Set visible to true after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            visible = true;
+        }, 100);
     });
 </script>
 
 <div class="homepage-container">
-    <div class="welcome-container">
+    {#if visible}
+    <div class="welcome-container" transition:fade={{ duration: 800 }}>
         <div class="left-section">
-            <h1>WELCOME</h1>
-            <h2>Communicate your ideas <br> with striking visuals to stand out!</h2>
-            <div class="button-group">
+            <h1 transition:fade={{ delay: 300, duration: 800 }}>WELCOME</h1>
+            <h2 transition:fade={{ delay: 500, duration: 800 }}>Communicate your ideas <br> with striking visuals to stand out!</h2>
+            <div class="button-group" transition:fade={{ delay: 700, duration: 800 }}>
                 <a class="showreel" href="https://www.instagram.com/p/DJFNNZJqyWP/">SHOWREEL</a>
                 <a class="contact" href="https://www.instagram.com/suryqata/">CONTACT</a>
                 <a class="CV" href="https://www.instagram.com/suryqata/">CV</a>
             </div>
-            <div class="clients">
+            <div class="clients" transition:fade={{ delay: 900, duration: 800 }}>
                 <h3>Clients</h3>
                     <div class="client-logos">
                         <img id="VisualHeightsNYC" src="clients_logo/Visual_Heights_Logo.png" alt="Visual Heights NYC">
@@ -24,15 +32,22 @@
                     </div>
             </div>
         </div>
-        <div class="right-section">
+        <div class="right-section" transition:fade={{ delay: 300, duration: 800 }}>
             <img src="brand_img/VitMotionPictures.png" alt="VIT Motion Pictures Logo">
             <p class="tagline">Bringing over 7 years of art direction and content creation experience.</p>
         </div>
     </div>
+    {/if}
 </div>
 
 
 <style>
+    /* Fade-in animation for elements that don't use Svelte transitions */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
     .homepage-container {
         margin: 0; /* Remove all margins */
         background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);

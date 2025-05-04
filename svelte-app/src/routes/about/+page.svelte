@@ -1,17 +1,25 @@
 <script>
     import { onMount } from 'svelte';
-
+    import { fade } from 'svelte/transition';
+    
+    let visible = false;
+    
     onMount(() => {
         console.log("About Page Loaded");
+        // Set visible to true after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            visible = true;
+        }, 100);
     });
 </script>
 
 <!-- About Section with Two-Column Layout -->
 <div class="about-container">
-    <div class="about-content">
+    {#if visible}
+    <div class="about-content" transition:fade={{ duration: 800 }}>
         <div class="left-column">
-            <h1>About Me</h1>
-            <div class="about-text">
+            <h1 transition:fade={{ delay: 300, duration: 800 }}>About Me</h1>
+            <div class="about-text" transition:fade={{ delay: 500, duration: 800 }}>
                 <h2>Vit Prechtl - 16/11/2004</h2>
                 <p>I am a 20 year old multi-disciplionary artist.
                     outside of art i love calisthenics and history.
@@ -23,13 +31,20 @@
                 <h4>hire me, let's build your value!</h4>
             </div>
         </div>
-        <div class="right-column">
+        <div class="right-column" transition:fade={{ delay: 700, duration: 800 }}>
             <img src="photos/AboutMePhoto.jpg" alt="Young Brunette Male Portrait Photo" class="about-image">
         </div>
     </div>
+    {/if}
 </div>
 
 <style>
+    /* Fade-in animation for elements that don't use Svelte transitions */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
     .about-container {
         margin: 0; /* Remove all margins */
         background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);
