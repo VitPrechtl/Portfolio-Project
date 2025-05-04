@@ -1,13 +1,41 @@
 <script>
+    import ProjectModal from './ProjectModal.svelte';
+    
+    /**
+     * @typedef {Object} PortfolioItem
+     * @property {string} title - The title of the project
+     * @property {string} imageUrl - URL to the main image
+     * @property {string} [description] - Brief project description
+     * @property {string} [category] - Project category
+     * @property {string} [client] - Client name
+     * @property {string} [date] - Project date
+     * @property {string} [details] - Detailed project description
+     * @property {Array<string>} [technologies] - List of technologies used
+     * @property {Array<string>} [additionalImages] - URLs to additional project images
+     */
+
+    /** @type {Array<PortfolioItem>} */
     export let items = [];
     export let columns = 3;
     export let gap = '1rem';
     export let showDescription = true;
+    
+    let selectedItem = null;
+    let modalOpen = false;
+    
+    function openItemDetails(item) {
+        selectedItem = item;
+        modalOpen = true;
+    }
+    
+    function closeModal() {
+        modalOpen = false;
+    }
 </script>
 
 <div class="portfolio-gallery" style="--columns: {columns}; --gap: {gap};">
     {#each items as item}
-        <div class="gallery-item">
+        <div class="gallery-item" on:click={() => openItemDetails(item)}>
             <div class="image-container" style="background-color: black;">
                 <img 
                     src={item.imageUrl} 
@@ -29,6 +57,60 @@
     {/each}
 </div>
 
+{#if modalOpen && selectedItem}
+    <ProjectModal open={modalOpen} onClose={closeModal}>
+        <svelte:fragment slot="title">
+            <h2>{selectedItem.title}</h2>
+        </svelte:fragment>
+        
+        <svelte:fragment slot="main-image">
+            <img src={selectedItem.imageUrl} alt={selectedItem.title} class="modal-main-image" />
+        </svelte:fragment>
+        
+        <svelte:fragment slot="category">
+            <p>{selectedItem.category || '-'}</p>
+        </svelte:fragment>
+        
+        <svelte:fragment slot="client">
+            <p>{selectedItem.client || '-'}</p>
+        </svelte:fragment>
+        
+        <svelte:fragment slot="date">
+            <p>{selectedItem.date || '-'}</p>
+        </svelte:fragment>
+        
+        <svelte:fragment slot="technologies">
+            {#if selectedItem.technologies && selectedItem.technologies.length > 0}
+                <ul class="technologies-list">
+                    {#each selectedItem.technologies as tech}
+                        <li>{tech}</li>
+                    {/each}
+                </ul>
+            {:else}
+                <p>-</p>
+            {/if}
+        </svelte:fragment>
+        
+        <svelte:fragment slot="details">
+            <p>{selectedItem.details || selectedItem.description || 'No details available.'}</p>
+        </svelte:fragment>
+        
+        <svelte:fragment slot="additional-images">
+            {#if selectedItem.additionalImages && selectedItem.additionalImages.length > 0}
+                <div class="additional-images-grid">
+                    {#each selectedItem.additionalImages as imgUrl}
+                        <div class="additional-image">
+                            <img src={imgUrl} alt="Additional project image" />
+                        </div>
+                    {/each}
+                </div>
+            {:else}
+                <p>No additional images available.</p>
+            {/if}
+        </svelte:fragment>
+    </ProjectModal>
+{/if}
+
 <style>
     .portfolio-gallery {
         display: grid;
@@ -36,6 +118,54 @@
         gap: var(--gap);
         width: 100%;
         margin: 2rem 0;
+    }
+    
+    /* Modal Styles */
+    .modal-main-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .technologies-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .technologies-list li {
+        display: inline-block;
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 0.3rem 0.6rem;
+        border-radius: 3px;
+        margin: 0 0.5rem 0.5rem 0;
+        font-size: 0.8rem;
+    }
+    
+    .additional-images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    
+    .additional-image {
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .additional-image img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    
+    .additional-image:hover img {
+        transform: scale(1.05);
     }
 
     .gallery-item {
