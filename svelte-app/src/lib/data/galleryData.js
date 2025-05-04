@@ -88,27 +88,27 @@ export const galleryItems = {
     rendering: [
         {
             id: 'render1',
-            title: 'Architectural Visualization',
-            description: 'Exterior rendering of modern residential building',
-            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
+            title: 'Vagabond Title',
+            description: 'Vagabond Cinematic 3D Title',
+            imageUrl: '/images/portfolio/rendering/VagabondText_Render.jpg'
         },
         {
             id: 'render2',
-            title: 'Interior Design',
-            description: 'Photorealistic interior visualization for luxury apartment',
-            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
+            title: 'Monochrome Tokyo',
+            description: 'Photorealistic exterior cinematic scene rendered with Unreal Engine 5',
+            imageUrl: '/images/portfolio/rendering/UE5_Tokyo_Render.jpg'
         },
         {
             id: 'render3',
-            title: 'Landscape Rendering',
-            description: 'Urban landscape visualization for city planning project',
-            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
+            title: 'Dystopian Interior',
+            description: 'Dystopian interior render inspired by Neon Genesis Evangelion. Made in live action style.',
+            imageUrl: '/images/portfolio/rendering/DystopianInterior_Render.jpg'
         },
         {
             id: 'render4',
-            title: 'Lighting Study',
-            description: 'Advanced lighting visualization for architectural project',
-            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
+            title: 'Last of Us',
+            description: 'last of Us inspired rendering',
+            imageUrl: '/images/portfolio/rendering/LastOfUs_Render.jpg'
         }
     ],
 
