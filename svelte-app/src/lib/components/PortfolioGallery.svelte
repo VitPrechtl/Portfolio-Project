@@ -57,6 +57,12 @@
         height: 100%;
         box-sizing: border-box;
         background-color: black;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+        transform: scale(1.02);
     }
 
     .image-container {
@@ -79,7 +85,12 @@
         object-fit: cover;
         display: block;
         min-height: 300px;
-        opacity: 0.7;
+        opacity: 0.9;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .gallery-item:hover img {
+        opacity: 0.6;
     }
 
     .overlay {
@@ -96,19 +107,32 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+    
+    .gallery-item:hover .overlay {
+        opacity: 1;
     }
 
     h3 {
         margin: 0 0 1rem 0;
         font-size: 1.4rem;
         text-align: center;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
     
     p {
         margin: 0;
         font-size: 0.9rem;
-        opacity: 0.9;
+        opacity: 0;
         text-align: center;
+        transform: translateY(20px);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition-delay: 0.05s;
     }
     
     .click-details {
@@ -117,6 +141,17 @@
         font-weight: bold;
         color: #f5f5f5;
         text-decoration: underline;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition-delay: 0.1s;
+    }
+    
+    .gallery-item:hover h3,
+    .gallery-item:hover p,
+    .gallery-item:hover .click-details {
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .placeholder-img {
