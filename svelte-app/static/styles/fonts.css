@@ -1,0 +1,9 @@
+/* ==================================
+    Load Mitter Bold Font
+   ================================== */
+@font-face {
+    font-family: 'Mitter-Bold';
+    src: url('/fonts/Miter-Bold.otf');
+    font-weight: 400;
+    font-style: normal;
+}
