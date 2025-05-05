@@ -16,6 +16,15 @@
 		<!-- Links to a global CSS file for consistent styling across all pages -->
 		<link rel="stylesheet" href="%sveltekit.assets%/styles/global.css"/>
 
+		<!-- Font declarations with proper asset path resolution -->
+		<style>
+			@font-face {
+				font-family: 'Miter-Bold';
+				src: url('%sveltekit.assets%/fonts/Miter-Bold.otf');
+				font-weight: 400;
+				font-style: normal;
+			}
+		</style>
 
 		<!-- Default Website Title (Can be overriden in pages) -->
 		<title>Portfolio Page</title>

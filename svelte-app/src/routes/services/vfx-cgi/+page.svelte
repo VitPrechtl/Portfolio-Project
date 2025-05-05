@@ -1,10 +1,11 @@
 <script>
     import { goto } from '$app/navigation';
+    import { base } from '$app/paths';
     import PortfolioGallery from '$lib/components/PortfolioGallery.svelte';
     import { getGalleryItems } from '$lib/data/galleryData.js';
 
     function goBack() {
-        goto('/services');
+        goto(`${base}/services`);
     }
     
     // Get VFX and CGI portfolio items
@@ -12,7 +13,7 @@
 </script>
 
 <div class="service-page">
-    <div class="hero" style="background-image: url('/images/services/vfxCgi_BackPlate.png')">
+    <div class="hero" style="background-image: url({base}/images/services/vfxCgi_BackPlate.png)">
         <h1>VFX / CGI</h1>
     </div>
     <div class="content">

@@ -1,5 +1,6 @@
 <script>
     let isOpen = false; // Menu state (open/closed)
+    import { base } from '$app/paths';
 </script>
 
 
@@ -9,9 +10,9 @@
 
      <!-- Navigation Links -->
     <ul class:open={isOpen}>
-        <li><a href="/services">SERVICES</a></li>
-        <li><a href="/contact">CONTACT</a></li>
-        <li><a href="/about">ABOUT ME</a></li>
+        <li><a href="{base}/services">SERVICES</a></li>
+        <li><a href="{base}/contact">CONTACT</a></li>
+        <li><a href="{base}/about">ABOUT ME</a></li>
     </ul>
 </nav>
 

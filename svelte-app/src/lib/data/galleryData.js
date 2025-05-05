@@ -1,4 +1,5 @@
 // Sample gallery data for different service categories
+import { base } from '$app/paths';
 export const galleryItems = {
     // Animation service portfolio items
     animation: [
@@ -6,19 +7,19 @@ export const galleryItems = {
             id: 'anim1',
             title: '3D Logo Animation',
             description: '3D Logo animation for jewellery brand',
-            imageUrl: '/images/portfolio/animation/LogoAnimation_preview.jpg'
+            imageUrl: `${base}/images/portfolio/animation/LogoAnimation_preview.jpg`
         },
         {
             id: 'anim2',
             title: '깨진 Title Animation',
             description: 'Broken Title Animation',
-            imageUrl: '/images/portfolio/animation/Broken_Title_Animation.jpg'
+            imageUrl: `${base}/images/portfolio/animation/Broken_Title_Animation.jpg`
         },
         {
             id: 'anim3',
             title: 'Album Visual',
             description: 'Sample Music Album Visual',
-            imageUrl: '/images/portfolio/animation/AlbumVisual.jpg'
+            imageUrl: `${base}/images/portfolio/animation/AlbumVisual.jpg`
         },
     ],
 
@@ -28,37 +29,37 @@ export const galleryItems = {
             id: 'model1',
             title: 'Game Ready Model',
             description: 'Detailed 3D model of a dystopian exit sign',
-            imageUrl: '/images/portfolio/modeling/ExitSign_Model.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/ExitSign_Model.jpg`
         },
         {
             id: 'model2',
             title: 'Game Ready Lanterns',
             description: '3D GameReady Japanese Lantern Models',
-            imageUrl: '/images/portfolio/modeling/Lantern_Models.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/Lantern_Models.jpg`
         },
         {
             id: 'model3',
             title: 'Chappie Full Recreation',
             description: 'Fully Rigged Robot Character',
-            imageUrl: '/images/portfolio/modeling/ChappieCharacter_Model.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/ChappieCharacter_Model.jpg`
         },
         {
             id: 'model4',
             title: 'Game Japanese Street Assets',
             description: 'Modeling and photorealistic texturing for a game cinematic',
-            imageUrl: '/images/portfolio/modeling/LiamWongInspiredRender_Clay.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/LiamWongInspiredRender_Clay.jpg`
         },
         {
             id: 'model5',
             title: '3D Digital Double',
             description: 'Digital double for a movie S.T.A.L.K.E.R. Shadow of the Zone',
-            imageUrl: '/images/portfolio/modeling/Stalker_Weaver_DigitalDouble.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/Stalker_Weaver_DigitalDouble.jpg`
         },
         {
             id: 'model6',
             title: 'Game Ready Prop',
             description: 'Tech Gadget model for a video game',
-            imageUrl: '/images/portfolio/modeling/LittleGadget_Model.jpg'
+            imageUrl: `${base}/images/portfolio/modeling/LittleGadget_Model.jpg`
         }
     ],
 
@@ -68,19 +69,19 @@ export const galleryItems = {
             id: 'viz1',
             title: 'CocaCola Billboard Ad',
             description: 'Photorealistic rendering of CocaCola for a billboard advertising.',
-            imageUrl: '/images/portfolio/product-viz/CocaCola_BillboardAd.png'
+            imageUrl: `${base}/images/portfolio/product-viz/CocaCola_BillboardAd.png`
         },
         {
             id: 'viz2',
             title: 'Jack Daniels Visualisation',
             description: 'Jack Daniels animation and product visuals for advertising',
-            imageUrl: '/images/portfolio/product-viz/JackDaniels_ProductRendering.png'
+            imageUrl: `${base}/images/portfolio/product-viz/JackDaniels_ProductRendering.png`
         },
         {
             id: 'viz3',
             title: 'Kyu Camera Visualisation',
             description: 'Product visualisation for Kyu Japan Camera',
-            imageUrl: '/images/portfolio/product-viz/KyuJapan_Advertising.png'
+            imageUrl: `${base}/images/portfolio/product-viz/KyuJapan_Advertising.png`
         },
     ],
 
@@ -90,25 +91,25 @@ export const galleryItems = {
             id: 'render1',
             title: 'Vagabond Title',
             description: 'Vagabond Cinematic 3D Title',
-            imageUrl: '/images/portfolio/rendering/VagabondText_Render.jpg'
+            imageUrl: `${base}/images/portfolio/rendering/VagabondText_Render.jpg`
         },
         {
             id: 'render2',
             title: 'Monochrome Tokyo',
             description: 'Photorealistic exterior cinematic scene rendered with Unreal Engine 5',
-            imageUrl: '/images/portfolio/rendering/UE5_Tokyo_Render.jpg'
+            imageUrl: `${base}/images/portfolio/rendering/UE5_Tokyo_Render.jpg`
         },
         {
             id: 'render3',
             title: 'Dystopian Interior',
             description: 'Dystopian interior render inspired by Neon Genesis Evangelion. Made in live action style.',
-            imageUrl: '/images/portfolio/rendering/DystopianInterior_Render.jpg'
+            imageUrl: `${base}/images/portfolio/rendering/DystopianInterior_Render.jpg`
         },
         {
             id: 'render4',
             title: 'Last of Us',
             description: 'last of Us inspired rendering',
-            imageUrl: '/images/portfolio/rendering/LastOfUs_Render.jpg'
+            imageUrl: `${base}/images/portfolio/rendering/LastOfUs_Render.jpg`
         }
     ],
 
@@ -118,19 +119,19 @@ export const galleryItems = {
             id: 'vfx1',
             title: 'Toyota AE86',
             description: 'Full CGI Car Rendering',
-            imageUrl: '/images/portfolio/vfx/Trueno_FullCGI.png'
+            imageUrl: `${base}/images/portfolio/vfx/Trueno_FullCGI.png`
         },
         {
             id: 'vfx2',
             title: 'Blade Runner shot recreation',
             description: 'Blade Runner Full CGI recreation',
-            imageUrl: '/images/portfolio/vfx/BladeRunner_Shot.png'
+            imageUrl: `${base}/images/portfolio/vfx/BladeRunner_Shot.png`
         },
         {
             id: 'vfx3',
             title: 'Cthulhu Styleframe Design',
             description: 'Cthulhu Styleframe design for a title sequence',
-            imageUrl: '/images/portfolio/vfx/Cthulhu_Styleframe.jpg'
+            imageUrl: `${base}/images/portfolio/vfx/Cthulhu_Styleframe.jpg`
         },
     ]
 };
@@ -161,7 +162,7 @@ export function getGalleryItems(category) {
             id: `default-${index}`,
             title: `${category || 'Portfolio'} Item ${index + 1}`,
             description: 'Sample portfolio item',
-            imageUrl: '/images/placeholder.jpg', // This will trigger the error handler
+            imageUrl: `${base}/images/placeholder.jpg`, // This will trigger the error handler
             placeholderColor: color
         };
     });

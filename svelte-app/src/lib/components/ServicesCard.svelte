@@ -1,16 +1,17 @@
 <script>
     import { goto } from '$app/navigation';
+    import { base } from '$app/paths';
     
     export let title = "title";
     export let bgImage = "image";
     export let slug = ""; // URL-friendly slug for routing
 
-    // Construct the full image URL
-    $: imageUrl = `/images/${bgImage}`;
+    // Construct the full image URL with the base path
+    $: imageUrl = `${base}/${bgImage}`;
     
     // Handle navigation when card is clicked
     function handleClick() {
-        goto(`/services/${slug}`);
+        goto(`${base}/services/${slug}`);
     }
 </script>
 

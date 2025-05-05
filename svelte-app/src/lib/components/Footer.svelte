@@ -1,11 +1,11 @@
 <script>
-
+    import { base } from '$app/paths';
 </script>
 
 
 <footer>
     <p>always learning</p>
-    <img src="/brand_img/Brand_SmileyDeadFace_straightOn.png" alt="Dead Smiley Face Icon" class="icon">
+    <img src="{base}/brand_img/Brand_SmileyDeadFace_straightOn.png" alt="Dead Smiley Face Icon" class="icon">
     <p>always growing.</p>
 </footer>
 

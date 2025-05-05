@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     
     let visible = false;
@@ -13,7 +14,7 @@
     });
 </script>
 
-<div class="contact-container">
+<div class="contact-container" style="background-image: url({base}/brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg)">
     {#if visible}
     <div class="contact-content" transition:fade={{ duration: 800 }}>
         <h1 transition:fade={{ delay: 300, duration: 800 }}>Contact</h1>
@@ -41,7 +42,6 @@
     
     .contact-container {
         margin: 0;
-        background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -91,7 +91,7 @@
         display: inline-block;
         width: 250px;
         height: 50px;
-        font-family: Mitter-Bold;
+        font-family: var(--font-family);
         font-size: 1.5rem;
         border: 5px solid white;
         border-radius: 10px;

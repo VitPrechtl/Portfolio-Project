@@ -1,10 +1,11 @@
 <script>
     import { goto } from '$app/navigation';
+    import { base } from '$app/paths';
     import PortfolioGallery from '$lib/components/PortfolioGallery.svelte';
     import { getGalleryItems } from '$lib/data/galleryData.js';
 
     function goBack() {
-        goto('/services');
+        goto(`${base}/services`);
     }
     
     // Get modeling and texturing portfolio items
@@ -12,7 +13,7 @@
 </script>
 
 <div class="service-page">
-    <div class="hero" style="background-image: url('/images/services/ModelingAndTexturing_Backplate.png')">
+    <div class="hero" style="background-image: url({base}/images/services/ModelingAndTexturing_Backplate.png)">
         <h1>Modeling and Texturing</h1>
     </div>
     <div class="content">

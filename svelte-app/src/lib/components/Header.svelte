@@ -1,5 +1,6 @@
 <script>
     import { Navigation } from "$lib"
+    import { base } from '$app/paths';
 </script>
 
 
@@ -7,7 +8,7 @@
     <div class="header-container">
         <!-- Logo -->
         <div class="logo">
-            <a href="/"><img src="/brand_img/Vit_Logo.png" alt="Website Logo"></a>
+            <a href="{base}/"><img src="{base}/brand_img/Vit_Logo.png" alt="Website Logo"></a>
         </div>
         
         <div class="nav-container">

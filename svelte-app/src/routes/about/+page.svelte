@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     
     let visible = false;
@@ -14,7 +15,7 @@
 </script>
 
 <!-- About Section with Two-Column Layout -->
-<div class="about-container">
+<div class="about-container" style="background-image: url({base}/brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg)">
     {#if visible}
     <div class="about-content" transition:fade={{ duration: 800 }}>
         <div class="left-column">
@@ -32,7 +33,7 @@
             </div>
         </div>
         <div class="right-column" transition:fade={{ delay: 700, duration: 800 }}>
-            <img src="photos/AboutMePhoto.jpg" alt="Young Brunette Male Portrait Photo" class="about-image">
+            <img src="{base}/photos/AboutMePhoto.jpg" alt="Young Brunette Male Portrait Photo" class="about-image">
         </div>
     </div>
     {/if}
@@ -47,7 +48,6 @@
     
     .about-container {
         margin: 0; /* Remove all margins */
-        background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;

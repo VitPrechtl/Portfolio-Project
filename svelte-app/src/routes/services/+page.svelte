@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
     import { fade } from 'svelte/transition';
     import { ServicesCard } from '$lib';
     
@@ -14,25 +15,25 @@
     });
 </script>
 
-<div class="services-container">
+<div class="services-container" style="background-image: url({base}/brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg)">
     {#if visible}
     <h1 transition:fade={{ delay: 300, duration: 800 }}>Services</h1>
     <div class="content-wrapper" transition:fade={{ duration: 800 }}>
         <div class="services-list">
             <div transition:fade={{ delay: 400, duration: 800 }}>
-                <ServicesCard title="Product / Ad Viz" bgImage="services/ProductViz_Backplate.png" slug="product-viz" />
+                <ServicesCard title="Product / Ad Viz" bgImage="images/services/ProductViz_Backplate.png" slug="product-viz" />
             </div>
             <div transition:fade={{ delay: 500, duration: 800 }}>
-                <ServicesCard title="VFX / CGI" bgImage="services/vfxCgi_BackPlate.png" slug="vfx-cgi" />
+                <ServicesCard title="VFX / CGI" bgImage="images/services/vfxCgi_BackPlate.png" slug="vfx-cgi" />
             </div>
             <div transition:fade={{ delay: 600, duration: 800 }}>
-                <ServicesCard title="Animation" bgImage="services/Animation_Backplate.png" slug="animation" />
+                <ServicesCard title="Animation" bgImage="images/services/Animation_Backplate.png" slug="animation" />
             </div>
             <div transition:fade={{ delay: 700, duration: 800 }}>
-                <ServicesCard title="Modeling and Texturing" bgImage="services/ModelingAndTexturing_Backplate.png" slug="modeling-and-texturing" />
+                <ServicesCard title="Modeling and Texturing" bgImage="images/services/ModelingAndTexturing_Backplate.png" slug="modeling-and-texturing" />
             </div>
             <div transition:fade={{ delay: 800, duration: 800 }}>
-                <ServicesCard title="Rendering" bgImage="services/Rendering_Backplate.png" slug="rendering" />
+                <ServicesCard title="Rendering" bgImage="images/services/Rendering_Backplate.png" slug="rendering" />
             </div>
         </div>
     </div>
@@ -49,7 +50,6 @@
     
     .services-container {
         margin: 0; /* Remove all margins */
-        background-image: url(brand_img/VitMotionPictures_SpiralStraightOnBlurred.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
