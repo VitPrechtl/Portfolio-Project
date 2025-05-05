@@ -1,0 +1,83 @@
+/* ==================================
+    Global Styles with CSS Variables
+   ================================== */
+
+:root {
+    /* Color Variables */
+    --primary-color: black;
+    --secondary-color: #eb0000;
+    --background-color: #ffffff;
+    --text-color: #213547;
+    --link-hover-color: #0056b3;
+
+    /* Font Variables */
+    --font-family: 'Miter-Bold';
+    --base-font-size: 16px;
+    --line-height-base: 1.6;
+
+    /* Spacing Variables */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --max-width: 1200px;
+}
+
+/* ==================================
+    Global Reset - Ensures consistency across browsers
+   ================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================================
+    Base Styles
+   ================================== */
+body {
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.5;
+}
+
+/* ==================================
+    Headings
+   ================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+h1 {
+    font-size: 8rem;
+}
+
+/* ==================================
+    Paragraphs
+   ================================== */
+p {
+    margin-bottom: var(--spacing-small);
+    font-family: var(--font-family);
+}
+
+/* ==================================
+    Links
+   ================================== */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-family);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==================================
+    Container - Layout Wrapping
+   ================================== */
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+}
